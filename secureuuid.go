@@ -177,13 +177,15 @@ func main() {
 
 	if compactFlag {
 		fmt.Print(strings.ReplaceAll(result, "-", ""))
+		if !noNewLine {
+			fmt.Println()
+		}
 	}
 
 	if standardFlag {
 		fmt.Print(result)
-	}
-
-	if !noNewLine {
-		fmt.Println()
+		if !noNewLine {
+			fmt.Println()
+		}
 	}
 }

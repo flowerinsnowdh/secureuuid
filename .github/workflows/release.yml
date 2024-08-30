@@ -50,7 +50,7 @@ jobs:
       - name: Build
         run: |
           go build
-          powershell -command "Compress-Archive -Path 'secureuuid.exe' -Path 'LICENSE' -Path 'NOTICE' -DestinationPath 'secureuuid-windows.zip'"
+          powershell -command "Compress-Archive -Path 'secureuuid.exe' 'LICENSE' 'NOTICE' -DestinationPath 'secureuuid-windows.zip'"
           
 
       - name: Release

@@ -25,7 +25,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -v ./...
+          go build
           chmod +x secureuuid
           tar -zcvf secureuuid-linux.tar.gz secureuuid LICENSE NOTICE
 
@@ -49,7 +49,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -v ./...
+          go build
           zip secureuuid-windows.zip secureuuid.exe LICENSE NOTICE
           
 

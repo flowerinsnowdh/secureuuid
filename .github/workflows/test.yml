@@ -24,7 +24,7 @@ jobs:
 
       - name: Test run
         run: |
-          go build -v ./...
+          go build
           chmod +x secureuuid
           ./secureuuid -r -s
           ./secureuuid -r -c

@@ -142,18 +142,20 @@ func main() {
 	}
 
 	var namespace uuid.UUID
-	var err error
-	if strings.EqualFold(namespaceValue, "dns") {
-		namespace, _ = uuid.Parse("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
-	} else if strings.EqualFold(namespaceValue, "url") {
-		namespace, _ = uuid.Parse("6ba7b811-9dad-11d1-80b4-00c04fd430c8")
-	} else if strings.EqualFold(namespaceValue, "oid") {
-		namespace, _ = uuid.Parse("6ba7b812-9dad-11d1-80b4-00c04fd430c8")
-	} else if strings.EqualFold(namespaceValue, "x500") {
-		namespace, _ = uuid.Parse("6ba7b814-9dad-11d1-80b4-00c04fd430c8")
-	} else if namespace, err = uuid.Parse(namespaceValue); err != nil {
-		_, _ = fmt.Fprintln(os.Stderr, "Invalid namespace: "+err.Error())
-		os.Exit(124)
+	if namespaceValue != "" {
+		var err error
+		if strings.EqualFold(namespaceValue, "dns") {
+			namespace, _ = uuid.Parse("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
+		} else if strings.EqualFold(namespaceValue, "url") {
+			namespace, _ = uuid.Parse("6ba7b811-9dad-11d1-80b4-00c04fd430c8")
+		} else if strings.EqualFold(namespaceValue, "oid") {
+			namespace, _ = uuid.Parse("6ba7b812-9dad-11d1-80b4-00c04fd430c8")
+		} else if strings.EqualFold(namespaceValue, "x500") {
+			namespace, _ = uuid.Parse("6ba7b814-9dad-11d1-80b4-00c04fd430c8")
+		} else if namespace, err = uuid.Parse(namespaceValue); err != nil {
+			_, _ = fmt.Fprintln(os.Stderr, "Invalid namespace: "+err.Error())
+			os.Exit(124)
+		}
 	}
 
 	var u uuid.UUID

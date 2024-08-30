@@ -26,11 +26,20 @@ jobs:
         run: |
           go build
           chmod +x secureuuid
+          echo Random + Standard
           ./secureuuid -r -s
+          echo Random + Compact
           ./secureuuid -r -c
+          echo Random + Standard + Compact
           ./secureuuid -r -s -c
+          echo Standard UUID + Compact
           ./secureuuid -u 11e416c4-6962-496a-887f-02be4e4bfd79 -c
+          echo Compact UUID + Standard
           ./secureuuid -u 11e416c46962496a887f02be4e4bfd79 -s
+          echo Compact UUID + Standard + NoNewline
           ./secureuuid -u 11e416c46962496a887f02be4e4bfd79 -s -no-newline > std.txt
           cat std.txt
+          echo Namespace + SHA1
+          ./secureuuid -n 6ba7b810-9dad-11d1-80b4-00c04fd430c8 -sha1 flowerinsnow.online -s
+          echo Preset Namespace + SHA1
           ./secureuuid -n dns -sha1 flowerinsnow.online -s

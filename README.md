@@ -109,3 +109,9 @@ bd2b3986-1d4c-54f6-91e3-c02d797310a5
 </details>
 
 </details>
+
+# 编译
+
+```shell
+go build
+```

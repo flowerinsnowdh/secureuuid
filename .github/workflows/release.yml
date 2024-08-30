@@ -50,7 +50,7 @@ jobs:
       - name: Build
         run: |
           go build
-          zip secureuuid-windows.zip secureuuid.exe LICENSE NOTICE
+          powershell -command "Compress-Archive -Path 'secureuuid.exe' -Path 'LICENSE' -Path 'NOTICE' -DestinationPath 'secureuuid-windows.zip'"
           
 
       - name: Release
